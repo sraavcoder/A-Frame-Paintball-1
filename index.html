@@ -7,7 +7,6 @@
   <script
     src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
-  <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
   <script src="./shoot.js"></script>
@@ -19,7 +18,6 @@
 
     <a-assets>
       <a-asset-item id="shooter" src="./models/soldier2/gun.gltf"></a-asset-item>
-      <a-asset-item id="mesh" src="./models/navmesh.gltf"></a-asset-item>
       <audio id="shoot" src="./sounds/splash.mp3"></audio>
       <audio id="footstep" src="./sounds/footStep.mp3"></audio>
     </a-assets>
@@ -42,18 +40,14 @@
 
     <a-entity light="type: ambient; color: white; intensity:0.5"></a-entity>
     <a-entity light="type: directional; color: #EEE; intensity: 1" position="-1 1 0"></a-entity>
-
-    <a-entity id="mesh_entity" position="0 0.1 0" gltf-model="#mesh" visible="false" nav-mesh></a-entity>
     
-    <a-entity id="camera-rig" movement-controls="speed: 0.15; constrainToNavMesh: true" position="0 0 5">
-      <a-entity id="camera" camera position="0 1.6 0"
+      <a-entity id="camera" camera wasd-controls="acceleration: 300" position="0 1.6 0"
         look-controls="pointerLockEnabled: false">
         <a-entity id="weapon" gltf-model="#shooter" position="1 -0.5 -1.5" rotation="0 90 0" scale="0.005 0.005 0.005"
           player-movement>
         </a-entity>
         <a-cursor></a-cursor>
       </a-entity>
-    </a-entity>
 
 
     <a-entity bullets="position:0 0 -5"></a-entity>

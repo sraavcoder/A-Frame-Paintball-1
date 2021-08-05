@@ -14,14 +14,14 @@ AFRAME.registerComponent("bullets", {
 
         bullet.setAttribute("material", "color", "black");
 
-        var cam = document.querySelector("#camera-rig");
+        var cam = document.querySelector("#camera");
 
         pos = cam.getAttribute("position");
 
         bullet.setAttribute("position", {
           x: pos.x,
-          y: pos.y + 1.5,
-          z: pos.z - 0.5,
+          y: pos.y,
+          z: pos.z,
         });
 
         var camera = document.querySelector("#camera").object3D;
@@ -31,7 +31,7 @@ AFRAME.registerComponent("bullets", {
         camera.getWorldDirection(direction);
 
         //set the velocity and it's direction
-        bullet.setAttribute("velocity", direction.multiplyScalar(-20));
+        bullet.setAttribute("velocity", direction.multiplyScalar(-30));
 
         var scene = document.querySelector("#scene");
 
